@@ -16,4 +16,16 @@ public class User {
     private String email;
     @Column(name = "senha")
     private String senha;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
 }
