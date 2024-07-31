@@ -1,4 +1,4 @@
-package com.soter.dogp;
+package com.soter.dogp.objcts;
 
 import jakarta.persistence.*;
 
@@ -10,13 +10,13 @@ public class Posts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "datetime")
     private Date datetime;
 
     @Column(name = "userid")
-    private Integer user_id;
+    private Integer userId;
 
     @Column(name = "post")
     private String post;
@@ -32,8 +32,8 @@ public class Posts {
         this.datetime = datetime;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public void setPost(String post) {
@@ -52,8 +52,8 @@ public class Posts {
         return datetime;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserid() {
+        return userId;
     }
 
     public String getPost() {
