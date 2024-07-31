@@ -14,7 +14,7 @@ public interface PostRepo extends JpaRepository<Posts, Integer>{
 
     @Transactional
     @Modifying
-    @Query(value = "INSERT INTO posts(userId, post, posteId) VALUES (:userId, :textcontent, :poste );", nativeQuery = true)
-    void createPost(int userId, String textcontent, int poste);
+    @Query(value = "INSERT INTO posts(user_id, post, posteId) VALUES (:user_id, :textcontent, :poste );", nativeQuery = true)
+    void createPost(int user_id, String textcontent, int poste);
 
 }

@@ -15,8 +15,8 @@ public class Posts {
     @Column(name = "datetime")
     private Date datetime;
 
-    @Column(name = "userid")
-    private Integer userId;
+    @Column(name = "user_id")
+    private Integer user_id;
 
     @Column(name = "post")
     private String post;
@@ -32,8 +32,8 @@ public class Posts {
         this.datetime = datetime;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserId(int user_id) {
+        this.user_id = user_id;
     }
 
     public void setPost(String post) {
@@ -53,7 +53,7 @@ public class Posts {
     }
 
     public int getUserid() {
-        return userId;
+        return user_id;
     }
 
     public String getPost() {
