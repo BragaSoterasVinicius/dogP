@@ -14,10 +14,15 @@
         <input type="text" id="post" name="post"/>
         <button type="submit">Postar</button>
     </form>
-    <form  th:action="@{/deletin}" th:object="${formDeleteModel}">
-        <label for="intInput">Delete</label>
-        <input type="number" id="intInput" name="intInput" maxlength="14"/>
-        <button type="submit">Deletar</button>
+    <form  th:action="@{/jumpTo}" method="get" th:object="${postePage}">
+        <label>pule para um outro poste</label>
+        <input type="number" id="posteId" name="posteId"/>
+        </form>
+    <form  th:action="@{/nextPoste}" method="get">
+        <button type="submit"> seguir > </button>
+    </form>
+    <form  th:action="@{/lastPoste}" method="get">
+        <button type="submit"> < voltar </button>
     </form>
 </div>
 </body>

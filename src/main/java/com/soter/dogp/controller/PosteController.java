@@ -35,6 +35,28 @@ public class PosteController {
         String post = newPosts.getPost();
         Integer posteId = (Integer) session.getAttribute("POSTEID");
         postService.makePost(user_id, post, posteId);
-        return "redirect:/poste/"+posteId.toString();
+        return "redirect:/poste";
     }
+
+    @GetMapping("/nextPoste")
+    public String nextPoste(HttpSession session, Model model){
+        Integer rnPoste = (Integer) session.getAttribute("POSTEID");
+        session.setAttribute("POSTEID",rnPoste+1);
+        return "redirect:/poste";
+    }
+    @GetMapping("/lastPoste")
+    public String lastPoste(HttpSession session, Model model){
+        Integer rnPoste = (Integer) session.getAttribute("POSTEID");
+        if(rnPoste > 0){
+            session.setAttribute("POSTEID",rnPoste-1);
+        }
+        return "redirect:/poste";
+    }
+    @GetMapping("/jumpTo")
+    public String jumpTo(HttpSession session, Model model, @ModelAttribute("Posts") Posts postePage){
+        Integer pageJump = postePage.getPosteId();
+        session.setAttribute("POSTEID",pageJump);
+        return "redirect:/poste";
+    }
+
 }
