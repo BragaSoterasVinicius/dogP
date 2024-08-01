@@ -16,7 +16,8 @@ public class User {
     private String email;
     @Column(name = "senha")
     private String senha;
-
+    @Column(name = "last_post")
+    private Integer last_post;
     public Integer getUser_id() {
         return user_id;
     }
@@ -43,4 +44,13 @@ public class User {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public Integer getLast_post() {
+        return last_post;
+    }
+
+    public void setLast_post(Integer last_post) {
+        this.last_post = last_post;
+    }
+
 }

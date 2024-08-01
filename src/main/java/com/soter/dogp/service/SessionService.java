@@ -11,6 +11,7 @@ public class SessionService {
         session.setAttribute("USERID", sessionUser.getUser_id());
         session.setAttribute("USERNAME", sessionUser.getNome());
         session.setAttribute("USEREMAIL", sessionUser.getEmail());
+        session.setAttribute("POSTEID", sessionUser.getLast_post());
         session.setAttribute("LOGGED", true);
     }
 

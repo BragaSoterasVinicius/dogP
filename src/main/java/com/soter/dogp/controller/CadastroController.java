@@ -3,6 +3,7 @@ package com.soter.dogp.controller;
 import com.soter.dogp.objcts.User;
 import com.soter.dogp.repo.UserRepo;
 import com.soter.dogp.service.CadastroService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +22,7 @@ public class CadastroController {
     }
 
     @GetMapping ("/cadastrar")
-    public String cadastroNewUser(Model model, @ModelAttribute("User") User userCadastro){
+    public String cadastroNewUser(HttpSession session, Model model, @ModelAttribute("User") User userCadastro){
         model.addAttribute("cadastroModel", new User());
         String nome = userCadastro.getNome();
         String email = userCadastro.getEmail();

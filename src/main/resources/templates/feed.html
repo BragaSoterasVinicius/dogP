@@ -9,5 +9,16 @@
     <p th:text="${post.getDatetime()}"></p>
     <p th:text="${post.getPost()}"></p>
 </div>
+<div>
+    <form th:action="@{/postar}" th:object="${newPosts}" method="post" enctype="multipart/form-data">
+        <input type="text" id="post" name="post"/>
+        <button type="submit">Postar</button>
+    </form>
+    <form  th:action="@{/deletin}" th:object="${formDeleteModel}">
+        <label for="intInput">Delete</label>
+        <input type="number" id="intInput" name="intInput" maxlength="14"/>
+        <button type="submit">Deletar</button>
+    </form>
+</div>
 </body>
 </html>
