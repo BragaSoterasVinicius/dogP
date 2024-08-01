@@ -18,6 +18,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     @Query(value = "SELECT senha FROM users WHERE email = :email", nativeQuery = true)
     String searchForUserSenha(String email);
 
+
     @Query(value = "SELECT * FROM users WHERE user_id = :user_id", nativeQuery = true)
     User getUserDataByUserId(Integer user_id);
 
