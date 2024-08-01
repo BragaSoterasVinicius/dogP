@@ -15,5 +15,9 @@
     <p th:text="${post.getPosteId()}"></p>
 </div>
 <h1>Fungada Memory</h1>
+<div th:each="cheiroid : ${listCheiros}">
+    <p th:text="${cheiroid}"></p>
+</div>
+
 </body>
 </html>

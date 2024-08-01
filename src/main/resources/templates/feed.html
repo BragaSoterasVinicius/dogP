@@ -11,6 +11,9 @@
 <div th:each="post : ${listsPosts}">
     <p th:text="${post.getDatetime()}"></p>
     <p th:text="${post.getPost()}"></p>
+    <form th:action="@{/addSmell}" th:object="${newCheiro}" method="post" enctype="multipart/form-data">
+        <input type="submit" id="cheirado_id" name="cheirado_id" th:value="${post.getUserid()}"/>
+    </form>
 </div>
 <div>
     <form th:action="@{/postar}" th:object="${newPosts}" method="post" enctype="multipart/form-data">
