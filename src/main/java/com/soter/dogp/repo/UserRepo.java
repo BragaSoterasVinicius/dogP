@@ -19,7 +19,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     String searchForUserSenha(String email);
 
 
-    @Query(value = "SELECT * FROM users WHERE user_id = :user_id", nativeQuery = true)
-    User getUserDataByUserId(Integer user_id);
+    @Query(value = "SELECT * FROM users WHERE email = :email", nativeQuery = true)
+    User getUserDataByEmail(String email);
 
 }

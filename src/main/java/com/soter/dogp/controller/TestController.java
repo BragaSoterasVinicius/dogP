@@ -23,10 +23,18 @@ public class TestController {
         this.userRepo = userRepo;
     }
     private final String HOME_VIEW_COUNT = "HOME_VIEW_COUNT";
-    @GetMapping("/")
+    @GetMapping("/teste")
     public String postRepoTeste(HttpSession session){
         incrementCount(session, HOME_VIEW_COUNT);
-        return "testeDiferente, " + session.getAttribute(HOME_VIEW_COUNT);
+        Object userid = session.getAttribute("USERID");
+        System.out.println(userid);
+        Object username = session.getAttribute("USERNAME");
+        System.out.println(username);
+        Object useremail = session.getAttribute("USEREMAIL");
+        System.out.println(useremail);
+        Object logged = session.getAttribute("LOGGED");
+        System.out.println(logged);
+        return "testeDiferente, " + session.getAttribute(HOME_VIEW_COUNT) + ", user" + userid ;
     }
 
     @GetMapping("/count")

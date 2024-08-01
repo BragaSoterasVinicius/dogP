@@ -17,6 +17,9 @@ public class User {
     @Column(name = "senha")
     private String senha;
 
+    public Integer getUser_id() {
+        return user_id;
+    }
     public String getNome() {
         return nome;
     }
