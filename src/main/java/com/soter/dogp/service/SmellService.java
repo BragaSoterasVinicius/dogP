@@ -29,7 +29,8 @@ public class SmellService {
 
     public void addSmellToSearchList(HttpSession session, Integer cheirado_id){
         Integer user_id = (Integer) session.getAttribute("USERID");
-        smellRepo.activateHuntForThePiss(user_id, cheirado_id);
+        boolean switcher = !smellRepo.isItAlreadyPiss(user_id, cheirado_id);
+        smellRepo.activateHuntForThePiss(user_id, cheirado_id, switcher);
     }
 
     private boolean rememberCheiro(Integer chid) {
@@ -40,6 +41,10 @@ public class SmellService {
     public boolean isAuthorBeingHuntedByTheUser(Integer user_id, Integer author_id){
         List<Integer> procurados = smellRepo.listHuntedId(user_id);
         return procurados.contains(author_id);
+    }
+
+    public void changeApelido(Integer smellId, String apelido){
+        smellRepo.changeApelido(smellId, apelido);
     }
 
 
