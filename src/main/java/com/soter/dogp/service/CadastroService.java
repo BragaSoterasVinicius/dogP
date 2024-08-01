@@ -20,8 +20,7 @@ public class CadastroService {
         return userRepo.searchForUserSenha(email)== null;
     }
     public void saveUserToBd(String nome, String email, String senha){
-        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
-        String encodedSenha = bcrypt.encode(senha);
+        String encodedSenha = Integer.toString(senha.hashCode());
         userRepo.saveNewUser(nome, email, encodedSenha);
     }
 }

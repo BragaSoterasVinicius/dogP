@@ -12,8 +12,7 @@ public class LoginService {
     @Autowired
     private UserRepo userRepo;
     public boolean auth(String email, String senha){
-        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
-        String encodedSenha = bcrypt.encode(senha);
+        String encodedSenha = Integer.toString(senha.hashCode());
         String senhaOnDb = userRepo.searchForUserSenha(email);
         return Objects.equals(encodedSenha, senhaOnDb);
     }
