@@ -17,6 +17,10 @@
 <h1>Fungada Memory</h1>
 <div th:each="cheiroid : ${listCheiros}">
     <p th:text="${cheiroid}"></p>
+    <form th:action="@{/addSmellToSearchList}" th:object="${newCheiro}" enctype="multipart/form-data">
+        <input type="hidden" id="cheirado_id" name="cheirado_id" th:value="${cheiroid}"/>
+        <input type="submit" value="Destacar cheiro">
+    </form>
 </div>
 
 </body>

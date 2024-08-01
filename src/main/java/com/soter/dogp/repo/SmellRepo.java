@@ -16,10 +16,17 @@ public interface SmellRepo extends JpaRepository<Cheiro, Integer> {
 
     @Query(value = "SELECT * FROM cheiro_table WHERE cheirado_id = :chid", nativeQuery = true)
     List<Integer> getAnyByCheirado(Integer chid);
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE cheiro_table SET is_hunted = true WHERE cheirador_id = :user_id AND cheirado_id = :cheirado_id", nativeQuery = true)
+    void activateHuntForThePiss(Integer user_id, Integer cheirado_id);
 
     @Transactional
     @Modifying
     @Query(value = "INSERT INTO cheiro_table(cheirador_id, cheirado_id) VALUES (:user_id, :cheirado_id);", nativeQuery = true)
     void registerSmell(Integer user_id, Integer cheirado_id);
+
+    @Query(value = "SELECT cheirado_id FROM cheiro_table WHERE cheirador_id = :user_id and is_hunted = true", nativeQuery = true)
+    List<Integer> listHuntedId(Integer user_id);
 
 }

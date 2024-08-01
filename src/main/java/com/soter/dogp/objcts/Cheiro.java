@@ -18,7 +18,8 @@ public class Cheiro {
     private Integer cheirado_id;
     @Column(name = "apelido")
     private Integer apelido;
-
+    @Column(name = "is_hunted")
+    private Boolean is_hunted;
     public Integer getCheirador_id() {
         return cheirador_id;
     }
@@ -41,5 +42,13 @@ public class Cheiro {
 
     public void setCheirado_id(Integer cheirado_id) {
         this.cheirado_id = cheirado_id;
+    }
+
+    public Boolean getIs_hunted() {
+        return is_hunted;
+    }
+
+    public void setIs_hunted(Boolean is_hunted) {
+        this.is_hunted = is_hunted;
     }
 }

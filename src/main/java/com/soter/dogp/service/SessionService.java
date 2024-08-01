@@ -15,10 +15,10 @@ public class SessionService {
         session.setAttribute("LOGGED", true);
     }
     public void destroyUserSession(HttpSession session){
-        session.setAttribute("USERID", null);
-        session.setAttribute("USERNAME", null);
-        session.setAttribute("USEREMAIL", null);
-        session.setAttribute("POSTEID", null);
+        session.removeAttribute("USERID");
+        session.removeAttribute("USERNAME");
+        session.removeAttribute("USEREMAIL");
+        session.removeAttribute("POSTEID");
         session.setAttribute("LOGGED", false);
     }
 }

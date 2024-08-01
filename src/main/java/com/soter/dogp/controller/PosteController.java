@@ -1,9 +1,11 @@
 package com.soter.dogp.controller;
 
+import com.soter.dogp.objcts.PersonalPost;
 import com.soter.dogp.objcts.Posts;
 import com.soter.dogp.objcts.User;
 import com.soter.dogp.service.PostService;
 import com.soter.dogp.service.UserService;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,11 +30,14 @@ public class PosteController {
         Integer posteId = (Integer)session.getAttribute("POSTEID");
         String email = (String)session.getAttribute("USEREMAIL");
         String name = (String)session.getAttribute("USERNAME");
+        Integer userid = (Integer)session.getAttribute("USERID");
         userService.setUserLastPoste(posteId, email);
         List<Posts> posts = postService.getPostsByPoste(posteId);
+        List<PersonalPost> personalPosts = postService.buildPersonalPosts(posts, session);
+        model.addAttribute("userid", userid);
         model.addAttribute("posteId", posteId);
         model.addAttribute("username", name);
-        model.addAttribute("listsPosts", posts);
+        model.addAttribute("listsPosts", personalPosts);
         return "feed";
     }
 

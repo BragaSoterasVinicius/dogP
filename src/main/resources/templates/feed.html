@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="Poste+${posteId}"></title>
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
 </head>
 <body>
 
 <a th:href="@{perfil}"><div th:text="${username}"></div></a>
 <a th:href="logout">log out</a>
-<div th:each="post : ${listsPosts}">
+<div th:each="post : ${listsPosts}" th:classappend="${post.isHunted} ? 'active' : 'inactive'">
     <p th:text="${post.getDatetime()}"></p>
     <p th:text="${post.getPost()}"></p>
     <form th:action="@{/addSmell}" th:object="${newCheiro}" method="post" enctype="multipart/form-data">
-        <input type="submit" id="cheirado_id" name="cheirado_id" th:value="${post.getUserid()}"/>
+        <input type="hidden" id="cheirado_id" name="cheirado_id" th:value="${post.getUserid()}"/>
+        <input type="submit" value="Submit">
     </form>
 </div>
 <div>
