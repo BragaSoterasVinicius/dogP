@@ -2,13 +2,14 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${name}"></title>
+    <title th:text="${username}"></title>
 </head>
 <body>
-<h1 th:text="${name}">
+<a th:href="poste">Voltar</a>
+<h1 th:text="${username}">
 </h1>
 <h1>My Posts</h1>
-<div th:each="post : ${listMyPosts}">
+<div th:each="post : ${listsPosts}">
     <p th:text="${post.getDatetime()}"></p>
     <p th:text="${post.getPost()}"></p>
     <p th:text="${post.getPosteId()}"></p>

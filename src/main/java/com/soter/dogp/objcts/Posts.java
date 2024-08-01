@@ -21,8 +21,8 @@ public class Posts {
     @Column(name = "post")
     private String post;
 
-    @Column(name = "posteId")
-    private Integer posteId;
+    @Column(name = "poste_id")
+    private Integer poste_id;
 
     public void setId(int id) {
         this.id = id;
@@ -41,7 +41,7 @@ public class Posts {
     }
 
     public void setPosteId(int posteId) {
-        this.posteId = posteId;
+        this.poste_id = posteId;
     }
 
     public int getId() {
@@ -61,6 +61,6 @@ public class Posts {
     }
 
     public int getPosteId() {
-        return posteId;
+        return poste_id;
     }
 }
