@@ -17,6 +17,10 @@ public class PostService {
         List<Posts> postePosts = postRepo.findPostsByPosteId(posteNumber);
         return postePosts;
     }
+    public List<Posts> getPostsByUserId(Integer user_id){
+        List<Posts> postePosts = postRepo.getPostsByUserId(user_id);
+        return postePosts;
+    }
     public void makePost(Integer userId, String text, Integer poste){
         postRepo.createPost(userId, text, poste);
     }

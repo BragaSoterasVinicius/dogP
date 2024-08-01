@@ -3,6 +3,7 @@ package com.soter.dogp.controller;
 import com.soter.dogp.objcts.Posts;
 import com.soter.dogp.objcts.User;
 import com.soter.dogp.service.PostService;
+import com.soter.dogp.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,11 +20,18 @@ public class PosteController {
 
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private UserService userService;
     @GetMapping("/poste")
     public String posteLoader(HttpSession session, Model model){
         Integer posteId = (Integer)session.getAttribute("POSTEID");
+        String email = (String)session.getAttribute("USEREMAIL");
+        String name = (String)session.getAttribute("USERNAME");
+        userService.setUserLastPoste(posteId, email);
         List<Posts> posts = postService.getPostsByPoste(posteId);
         model.addAttribute("posteId", posteId);
+        model.addAttribute("username", name);
         model.addAttribute("listsPosts", posts);
         return "feed";
     }

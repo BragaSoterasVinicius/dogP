@@ -14,5 +14,11 @@ public class SessionService {
         session.setAttribute("POSTEID", sessionUser.getLast_post());
         session.setAttribute("LOGGED", true);
     }
-
+    public void destroyUserSession(HttpSession session){
+        session.setAttribute("USERID", null);
+        session.setAttribute("USERNAME", null);
+        session.setAttribute("USEREMAIL", null);
+        session.setAttribute("POSTEID", null);
+        session.setAttribute("LOGGED", false);
+    }
 }

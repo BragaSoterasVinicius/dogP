@@ -5,6 +5,8 @@
     <title th:text="Poste+${posteId}"></title>
 </head>
 <body>
+<div th:text="${username}"></div>
+<a th:href="logout">log out</a>
 <div th:each="post : ${listsPosts}">
     <p th:text="${post.getDatetime()}"></p>
     <p th:text="${post.getPost()}"></p>

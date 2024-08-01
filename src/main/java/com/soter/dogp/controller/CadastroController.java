@@ -28,6 +28,6 @@ public class CadastroController {
         String email = userCadastro.getEmail();
         String senha = userCadastro.getSenha();
         cadastroService.saveUser(nome, email, senha);
-        return "redirect:/cadastro";
+        return "redirect:/poste";
     }
 }

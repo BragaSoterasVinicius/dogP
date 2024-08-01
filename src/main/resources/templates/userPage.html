@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${name}"></title>
+</head>
+<body>
+<h1 th:text="${name}">
+</h1>
+<h1>My Posts</h1>
+<div th:each="post : ${listMyPosts}">
+    <p th:text="${post.getDatetime()}"></p>
+    <p th:text="${post.getPost()}"></p>
+    <p th:text="${post.getPosteId()}"></p>
+</div>
+<h1>Fungada Memory</h1>
+</body>
+</html>

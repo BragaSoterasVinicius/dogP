@@ -36,6 +36,6 @@ public class LoginController {
             User user = userRepo.getUserDataByEmail(email);
             sessionService.setUserSession(session, user);
         }
-        return "redirect:/teste";
+        return "redirect:/poste";
     }
 }
