@@ -27,7 +27,7 @@ public class UserPageController {
         String name = (String) session.getAttribute("USERNAME");
         Integer user_id = (Integer)session.getAttribute("USERID");
         List<Posts> listMyPosts = postService.getPostsByUserId(user_id);
-        List<Integer> listCheiros = smellService.getCheiradosByUser(session);
+        List<Cheiro> listCheiros = smellService.getCheiradosByUser(session);
         model.addAttribute("username", name);
         model.addAttribute("listsPosts", listMyPosts);
         model.addAttribute("listCheiros", listCheiros);
@@ -39,6 +39,16 @@ public class UserPageController {
         model.addAttribute("cheiroModel", new Cheiro());
         Integer cheirado = newCheiro.getCheirado_id();
         smellService.addSmellToSearchList(session, cheirado);
-        return "redirect:/poste";
+        return "redirect:/perfil";
+    }
+
+    @GetMapping("/changeApelido")
+    public String changeApelido(Model model, HttpSession session, @ModelAttribute("Cheiro") Cheiro newCheiro){
+        model.addAttribute("cheiroModelApelido", new Cheiro());
+        String apelido = newCheiro.getApelido();
+        Integer cheiroId = newCheiro.getId();
+        smellService.changeApelido(cheiroId, apelido);
+        return "redirect:/perfil";
+
     }
 }

@@ -19,6 +19,16 @@ public class PersonalPost {
 
     private Integer poste_id;
 
+    private String apelido;
+
+    public String getApelido() {
+        return apelido;
+    }
+
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
+    }
+
     public void setId(int id) {
         this.id = id;
     }

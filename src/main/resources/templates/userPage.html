@@ -15,12 +15,21 @@
     <p th:text="${post.getPosteId()}"></p>
 </div>
 <h1>Fungada Memory</h1>
-<div th:each="cheiroid : ${listCheiros}">
-    <p th:text="${cheiroid}"></p>
+<div th:each="cheiro : ${listCheiros}">
+    <p th:text="${cheiro.getId()}"></p>
     <form th:action="@{/addSmellToSearchList}" th:object="${newCheiro}" enctype="multipart/form-data">
-        <input type="hidden" id="cheirado_id" name="cheirado_id" th:value="${cheiroid}"/>
+        <input type="hidden" id="cheirado_id" name="cheirado_id" th:value="${cheiro.getCheirado_id()}"/>
         <input type="submit" value="Destacar cheiro">
     </form>
+    <p th:text="${cheiro.getDatetime()}"></p>
+    <p th:text="${cheiro.getCheirado_id()}"></p>
+    <p th:text="${cheiro.getApelido()}"></p>
+    <form th:action="@{/changeApelido}" th:object="${newCheiro}" enctype="multipart/form-data">
+        <input type="text" id="apelido" name="apelido"/>
+        <input type="number" id="id" name="id" th:value="${cheiro.getId()}">
+        <input type="submit" value="adicionar apelido">
+    </form>
+    <p th:text="${cheiro.getIs_hunted()}"></p>
     <!--no futuro vai ser bom criar algum jeito de mostrar o apelido baseado no id do usuario alheio  -->
 
 </div>
