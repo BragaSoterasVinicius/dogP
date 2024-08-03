@@ -37,6 +37,9 @@ public class PosteController {
     @GetMapping("/poste")
     public String posteLoader(HttpSession session, Model model){
         Integer posteId = (Integer)session.getAttribute("POSTEID");
+        if(posteId == null){
+            return "redirect:/cadastro";
+        }
         String email = (String)session.getAttribute("USEREMAIL");
         String name = (String)session.getAttribute("USERNAME");
         Integer userid = (Integer)session.getAttribute("USERID");
