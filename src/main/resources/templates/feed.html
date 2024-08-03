@@ -33,6 +33,9 @@
     <form  th:action="@{/lastPoste}" method="get">
         <button type="submit"> < voltar </button>
     </form>
+    <div th:each="dog : ${dogGallery}">
+        <img id="img" th:src="@{/images/__${dog}__}"/>
+    </div>
 </div>
 </body>
 </html>

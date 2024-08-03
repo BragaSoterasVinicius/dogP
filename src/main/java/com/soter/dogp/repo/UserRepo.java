@@ -32,5 +32,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     @Query(value = "SELECT DISTINCT home_post FROM users", nativeQuery = true)
     List<Integer> getUsedHomePostes();
 
+    @Query(value = "SELECT picture_id FROM users WHERE last_post = :last_post", nativeQuery = true)
+    List<String> getPictureIdByLastPost(Integer last_post);
 
 }

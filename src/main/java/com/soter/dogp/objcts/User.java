@@ -1,6 +1,7 @@
 package com.soter.dogp.objcts;
 
 import jakarta.persistence.*;
+import org.springframework.data.jpa.repository.Query;
 
 @Entity
 @Table(name = "users")
@@ -18,6 +19,9 @@ public class User {
     private String senha;
     @Column(name = "last_post")
     private Integer last_post;
+
+    @Column(name = "picture_id")
+    private Integer picture_id;
     public Integer getUser_id() {
         return user_id;
     }
@@ -53,4 +57,11 @@ public class User {
         this.last_post = last_post;
     }
 
+    public Integer getPicture_id() {
+        return picture_id;
+    }
+
+    public void setPicture_id(Integer picture_id) {
+        this.picture_id = picture_id;
+    }
 }
