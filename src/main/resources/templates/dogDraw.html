@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadro</title>
+    <script th:src="@{/js/dogDraw.js}"></script>
+</head>
+<body onload="draw()">
+    <h1>Desenhe teu cão</h1>
+    <canvas height="300px" width="600px">
+        
+    </canvas>
+    <button onclick="save()">baixar imagem</button>
+</body>
+</html>
