@@ -42,10 +42,33 @@ function draw() {
     canvas.addEventListener("mousemove", drawing);
     canvas.addEventListener("mouseup", () => isDrawing = false);
 }
-function save(){
-    const canvas = document.querySelector("canvas");
-    const link = document.createElement("a");
-    link.download = "userid.jpg";
-    link.href = canvas.toDataURL();
-    link.click();
+function sendToJavaTron(){
+        // Convert canvas to data URL
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const dataURL = canvas.toDataURL('image/png');
+
+        // Send the data URL to the server using Fetch API
+        fetch('/uploadCanvas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ imageData: dataURL })
+        })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+}
+function apagar(){
+    console.log("apagar");
+    const canvas = document.querySelector("canvas"),
+    ctx = canvas.getContext("2d");
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0,0, canvas.width, canvas.height);
+    ctx.fillStyle = "#fff";
 }
