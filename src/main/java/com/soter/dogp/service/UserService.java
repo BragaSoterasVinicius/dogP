@@ -15,4 +15,7 @@ public class UserService {
 
     }
 
+    public void setImage(Integer user_id, Integer image_id){
+        userRepo.setImageId(user_id, image_id);
+    }
 }
