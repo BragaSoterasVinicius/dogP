@@ -1,0 +1,45 @@
+.active{
+    background-color: red;
+}
+.inactive{
+}
+
+#img{
+    height: 200px;
+    width: 320px;
+}
+.userdata{
+    background-color: aqua;
+    float: right;
+    height: 500px;
+    width: 30%;
+}
+.middle{
+    overflow: auto;
+    float: right;
+    height: 500px;
+    width: 600px;
+}
+.direita{
+    background-color: aqua;
+    height: 500px;
+}
+.under{
+    background-color: red;
+    text-align: center;
+}
+.menu{
+    margin-top: 20px;
+}
+form{
+    display: inline-block;
+    margin: 0 10px;
+}
+.buttonLN{
+    height: 30px;
+    width: 70px;
+}
+.inputPoste{
+    padding: 5px 10px;
+    width: 50px;
+}
