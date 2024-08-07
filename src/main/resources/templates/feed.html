@@ -8,15 +8,19 @@
     <link rel="stylesheet" href="../static/styles/feed.css">
 </head>
 <body>
+
+<div class="top">
 <div class="userdata">
     <a th:href="@{perfil}"><div th:text="${username}"></div></a>
     <a th:href="logout">log out</a>
 </div>
 <div class="middle">
 <div th:each="post : ${listsPosts}" th:classappend="${post.isHunted} ? 'active' : 'inactive'">
-    <p th:text="${post.getDatetime()}"></p>
-    <p th:text="${post.getPost()}"></p>
-    <p th:text="${post.getApelido()}"></p>
+    <tag th:text="${post.getDatetime()}"></tag>
+    <tag> - </tag>
+    <tag th:text="${post.getApelido()}"></tag>
+    <tag> - </tag>
+    <tag th:text="${post.getPost()}"></tag>
     <form th:action="@{/addSmell}" th:object="${newCheiro}" method="post" enctype="multipart/form-data">
         <input type="hidden" id="cheirado_id" name="cheirado_id" th:value="${post.getUserid()}"/>
         <input type="submit" value="Scheirar">
@@ -27,6 +31,7 @@
     <div th:each="dog : ${dogGallery}">
         <img id="img" th:src="@{/images/__${dog}__}"/>
     </div>
+</div>
 </div>
 <div class="under">
     <form th:action="@{/postar}" th:object="${newPosts}" method="post" enctype="multipart/form-data">
