@@ -43,7 +43,7 @@ public class DogDrawController {
             e.printStackTrace();
             System.out.println("Erro subindo o diabo do canva");
         }
-        return "userPage";
+        return "redirect:/poste";
     }
     static class CanvasData {
         private String imageData;
