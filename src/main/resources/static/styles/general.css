@@ -1,0 +1,25 @@
+#deadcenter{
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  top: 40%;
+  margin-top: -10px;
+  text-align: center;
+}
+body{
+  margin: 0px;
+}
+.centercolumn{
+  background-color: #7f7f7f;
+  height: 100vh;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+.deadCenterDiv{
+  position: relative;
+  width: 100%;
+  height: 20px;
+  top: 50%;
+  text-align: center;
+  align-content: center;
+}

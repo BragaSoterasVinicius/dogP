@@ -35,7 +35,7 @@
         <button type="submit"> < voltar </button>
     </form>
     <div th:each="dog : ${dogGallery}">
-        <img id="img" th:src="@{/images/__${dog}__}"/>
+        <img id="img" th:src="@{imagens}"/>
     </div>
 </div>
 </body>

@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Dog Pee</title>
+    <link th:href="@{/styles/general.css}" rel="stylesheet" />
 </head>
 <body>
+<div id="deadcenter">
+    <img id="img" th:src="@{${'/imagens/dogp.png'}}"/>
 <h1>DogPee</h1>
-<a th:href="@{login}">Login</a>
+<a th:href="@{login}">Login<br>
 <a th:href="@{cadastro}">Cadastro</a>
+</div>
 </body>
 </html>

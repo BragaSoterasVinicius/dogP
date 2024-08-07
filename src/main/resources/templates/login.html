@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
+  <link th:href="@{/styles/general.css}" rel="stylesheet" />
 </head>
 <body>
-<div class="blocky" id="login">
-  <div style="align-content: center">
+<div class="centercolumn" id="login">
+  <div class="deadCenterDiv">
     <form th:action="@{/logar}" th:object="${loginModel}">
 
       <label for="email">Email</label>
@@ -16,10 +17,11 @@
       <label for="senha">Senha</label>
       <input type="text" id="senha" name="senha"/><br/>
 
-      <button type="submit">Assino</button>
+      <button type="submit">Logar</button>
     </form>
+    <a th:href="@{cadastro}">Cadastro</a>
   </div>
-  <a th:href="@{cadastro}">Cadastro</a>
+
 </div>
 </body>
 </html>
