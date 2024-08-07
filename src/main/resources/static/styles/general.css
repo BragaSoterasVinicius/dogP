@@ -8,6 +8,8 @@
 }
 body{
   margin: 0px;
+  height: 100vh;
+  background-color: purple;
 }
 .centercolumn{
   background-color: #7f7f7f;

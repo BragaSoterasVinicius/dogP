@@ -9,12 +9,13 @@
     width: 320px;
 }
 .userdata{
-    background-color: aqua;
     float: right;
     height: inherit;
     width: 30%;
 }
 .middle{
+    background-color: white;
+    color: black;
     overflow: auto;
     float: right;
     height: inherit;
@@ -22,15 +23,13 @@
 }
 .direita{
     overflow: auto;
-    background-color: aqua;
     height: inherit;
 }
 .under{
+    background-color: bisque;
     bottom: 0px;
-    position: absolute;
     width: 100%;
     height: 300px;
-    background-color: red;
     text-align: center;
 }
 .menu{

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -25,6 +26,7 @@ public class PostService {
 
     public List<Posts> getPostsByPoste(Integer posteNumber){
         List<Posts> postePosts = postRepo.findPostsByPosteId(posteNumber);
+        Collections.reverse(postePosts);
         return postePosts;
     }
     public List<Posts> getPostsByUserId(Integer user_id){
