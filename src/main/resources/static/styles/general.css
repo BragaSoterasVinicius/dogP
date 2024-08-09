@@ -11,6 +11,9 @@ body{
   height: 100vh;
   background-color: purple;
 }
+a{
+  color: bisque;
+}
 .centercolumn{
   background-color: #7f7f7f;
   height: 100vh;

@@ -16,6 +16,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     @Modifying
     @Query(value = "INSERT INTO users(nome, email, senha, home_post) VALUES (:nome, :email, :senha, :homePoste)", nativeQuery = true)
     void saveNewUser(String nome, String email, String senha, Integer homePoste);
+
     @Transactional
     @Modifying
     @Query(value = "UPDATE users SET last_post= :posteNum WHERE email= :email", nativeQuery = true)
@@ -28,6 +29,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 
     @Query(value = "SELECT senha FROM users WHERE email = :email", nativeQuery = true)
     String searchForUserSenha(String email);
+
     @Query(value = "SELECT * FROM users WHERE user_id = :id", nativeQuery = true)
     User getUserDataById(Integer id);
 
@@ -40,5 +42,6 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     @Query(value = "SELECT picture_id FROM users WHERE last_post = :last_post", nativeQuery = true)
     List<String> getPictureIdByLastPost(Integer last_post);
 
-
+    @Query(value = "SELECT home_post from users WHERE user_id = :id", nativeQuery = true)
+    Integer getHomePostByUserId(Integer id);
 }

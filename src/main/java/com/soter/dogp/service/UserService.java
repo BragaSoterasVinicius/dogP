@@ -10,12 +10,16 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
-    public void setUserLastPoste(Integer newLastPoste, String userEmail){
+    public void setUserLastPoste(Integer newLastPoste, String userEmail) {
         userRepo.alterLastPost(newLastPoste, userEmail);
 
     }
 
-    public void setImage(Integer user_id, Integer image_id){
+    public void setImage(Integer user_id, Integer image_id) {
         userRepo.setImageId(user_id, image_id);
+    }
+
+    public Integer getOriginPosteByUserId(Integer userid) {
+        return userRepo.getHomePostByUserId(userid);
     }
 }

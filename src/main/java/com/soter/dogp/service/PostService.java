@@ -24,22 +24,24 @@ public class PostService {
         this.smellService = smellService;
     }
 
-    public List<Posts> getPostsByPoste(Integer posteNumber){
+    public List<Posts> getPostsByPoste(Integer posteNumber) {
         List<Posts> postePosts = postRepo.findPostsByPosteId(posteNumber);
         Collections.reverse(postePosts);
         return postePosts;
     }
-    public List<Posts> getPostsByUserId(Integer user_id){
+
+    public List<Posts> getPostsByUserId(Integer user_id) {
         List<Posts> postePosts = postRepo.getPostsByUserId(user_id);
         return postePosts;
     }
-    public void makePost(Integer userId, String text, Integer poste){
+
+    public void makePost(Integer userId, String text, Integer poste) {
         postRepo.createPost(userId, text, poste);
     }
 
-    public List<PersonalPost> buildPersonalPosts(List<Posts> listaOriginal, HttpSession session){
+    public List<PersonalPost> buildPersonalPosts(List<Posts> listaOriginal, HttpSession session) {
         List<PersonalPost> postsPessoais = new ArrayList<>();
-        for(int n = 0; n < listaOriginal.size(); n++){
+        for (int n = 0; n < listaOriginal.size(); n++) {
             postsPessoais.add(buildPersonalIndividualPost(listaOriginal.get(n), session));
         }
         return postsPessoais;
@@ -53,7 +55,7 @@ public class PostService {
         postPessoal.setUserId(posts.getUserid());
         postPessoal.setPost(posts.getPost());
         postPessoal.setPosteId(posts.getPosteId());
-        postPessoal.setApelido(smellService.getApelido(posts.getUserid(), (Integer)session.getAttribute("USERID")));
+        postPessoal.setApelido(smellService.getApelido(posts.getUserid(), (Integer) session.getAttribute("USERID")));
         Integer user_id = (Integer) session.getAttribute("USERID");
         boolean hunted = smellService.isAuthorBeingHuntedByTheUser(user_id, posts.getUserid());
         postPessoal.setHunted(hunted);
