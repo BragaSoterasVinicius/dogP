@@ -11,9 +11,10 @@
 .userdata{
     float: right;
     height: inherit;
-    width: 30%;
+    width: 33%;
 }
 .middle{
+    width: 33%;
     background-color: white;
     color: black;
     overflow: auto;
@@ -22,6 +23,7 @@
     width: 600px;
 }
 .direita{
+    width: 33%;
     overflow: auto;
     height: inherit;
 }
@@ -29,7 +31,6 @@
     margin-top: 10px;
     bottom: 0px;
     width: 100%;
-    height: 300px;
     text-align: center;
 }
 .menu{
