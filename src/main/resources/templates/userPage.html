@@ -3,38 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${username}"></title>
+    <link th:href="@{/styles/userPage.css}" rel="stylesheet" />
 </head>
 <body>
-<a th:href="poste">Voltar</a>
-<h1 th:text="${username}">
-</h1>
-<a th:href="@{/draw}">Desenhar o perfil</a>
-<a th:href="@{/gotoMyPoste}">Ir para meu poste</a>
-<h1>My Posts</h1>
-<div th:each="post : ${listsPosts}">
-    <p th:text="${post.getDatetime()}"></p>
-    <p th:text="${post.getPost()}"></p>
-    <p th:text="${post.getPosteId()}"></p>
+<div id="centerCol">
+    <div class="top">
+    <a th:href="poste">Voltar</a>
+    <br>
+    <div class="left">
+        <h1 class="username" th:text="${username}"></h1>
+    </div>
+    <div class="direita">
+        <a th:href="@{/draw}">Desenhar o perfil</a><br>
+        <a th:href="@{/gotoMyPoste}">Ir para meu poste</a>
+    </div>
+    <br>
+    </div>  
+    <div class="mypost">
+    <h1 class="contenttitle">My Posts</h1>
+    <p class="content">datetime: -- postagem: -- poste:</p>
+    <div class="conjunto">
+    <div class="content" th:each="post : ${listsPosts}">
+        <span th:text="${post.getDatetime()}"></span>
+        <span>--</span>
+        <span th:text="${post.getPost()}"></span>
+        <span>--</span>
+        <span th:text="${post.getPosteId()}"></span>
+    </div>
 </div>
-<h1>Fungada Memory</h1>
-<div th:each="cheiro : ${listCheiros}">
-    <p th:text="${cheiro.getId()}"></p>
-    <form th:action="@{/addSmellToSearchList}" th:object="${newCheiro}" enctype="multipart/form-data">
-        <input type="hidden" id="cheirado_id" name="cheirado_id" th:value="${cheiro.getCheirado_id()}"/>
-        <input type="submit" value="Destacar cheiro">
-    </form>
-    <p th:text="${cheiro.getDatetime()}"></p>
-    <p th:text="${cheiro.getCheirado_id()}"></p>
-    <p th:text="${cheiro.getApelido()}"></p>
-    <form th:action="@{/changeApelido}" th:object="${newCheiro}" enctype="multipart/form-data">
-        <input type="text" id="apelido" name="apelido"/>
-        <input type="number" id="id" name="id" th:value="${cheiro.getId()}">
-        <input type="submit" value="adicionar apelido">
-    </form>
-    <p th:text="${cheiro.getIs_hunted()}"></p>
-    <!--no futuro vai ser bom criar algum jeito de mostrar o apelido baseado no id do usuario alheio  -->
-
 </div>
+    <div class="direita">
+    <h1 class="contenttitle">Fungada Memory</h1>
+    <div class="conjunto">
+    <div class="content" id="fungada" th:each="cheiro : ${listCheiros}">
+        
+        <span th:text="${cheiro.getDatetime()}"></span><span> - </span>
+        <span th:text="${cheiro.getCheirado_id()}"></span><span> - </span>
+        <span th:text="${cheiro.getApelido()}"></span>
+        <form th:action="@{/changeApelido}" th:object="${newCheiro}" enctype="multipart/form-data">
+            <input type="text" id="apelido" name="apelido"/>
+            <input type="hidden" id="id" name="id" th:value="${cheiro.getId()}">
+            
+        <br><input type="submit" value="adicionar/alterar apelido">
+        </form>
+        <form th:action="@{/addSmellToSearchList}" th:object="${newCheiro}" enctype="multipart/form-data">
+            <input type="hidden" id="cheirado_id" name="cheirado_id" th:value="${cheiro.getCheirado_id()}"/>
+            <input type="submit" value="Destacar cheiro">
+        </form>
+        <p th:text="${cheiro.getIs_hunted()}"></p>
+        <!--no futuro vai ser bom criar algum jeito de mostrar o apelido baseado no id do usuario alheio  -->
 
+    </div>
+</div>
+</div>
+</div>
 </body>
 </html>

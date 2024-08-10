@@ -1,0 +1,36 @@
+#centerCol{
+  background-color: #7f7f7f;
+  height: 100vh;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+#fungada{
+    width: 300px    ;
+}
+.left{
+    float: left;
+}
+.username{
+    font-size: 40px;
+}
+.contenttitle{
+    margin-left: 10px;
+}
+.content{
+    overflow: auto;
+    margin-left: 30px;
+}
+.direita{
+    float: inline-end;
+}
+.top{
+    height: 100px;
+}
+.mypost{
+    float: right;
+    width: 300px;
+}
+.conjunto{
+    height: 80vh;
+    overflow: auto;
+}
