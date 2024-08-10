@@ -11,7 +11,10 @@ import java.util.List;
 @Controller
 public class StartPageController {
     @GetMapping("/")
-    public String posteLoader(Model model){
+    public String posteLoader(HttpSession session, Model model){
+        if(session.getAttribute("USERID") != null){
+            return "redirect:/poste";
+        }
         return "startpage";
     }
 }

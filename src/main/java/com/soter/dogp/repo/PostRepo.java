@@ -19,13 +19,20 @@ public interface PostRepo extends JpaRepository<Posts, Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "INSERT INTO postebackground(background_id, poste_id) VALUES (:img, :poste);", nativeQuery = true)
-    void insertBg(Integer poste, Integer img);
+    @Query(value = "INSERT INTO postebackground(background_id, poste_id, name) VALUES (:poste, :img, :filename);", nativeQuery = true)
+    void insertBg(Integer poste, Integer img, String filename);
 
     @Query(value = "SELECT * FROM posts WHERE user_id = :user_id", nativeQuery = true)
     List<Posts> getPostsByUserId(Integer user_id);
 
     @Query(value = "SELECT background_id FROM postebackground WHERE poste_id = :id", nativeQuery = true)
-    String getBackgroundId(Integer id);
+    Integer getBackgroundId(Integer id);
 
+    @Query(value = "SELECT name FROM postebackground WHERE background_id = :id", nativeQuery = true)
+    String getNameByBackGroundId(Integer id);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE postebackground SET name = :filename WHERE background_id = :backgroundId", nativeQuery = true)
+    void updateBg(String filename, Integer backgroundId);
 }

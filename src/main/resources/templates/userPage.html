@@ -8,7 +8,7 @@
 
 </head>
 <body th:style="'background:url('  + @{/images/background/__${backgroundImage}__} + ');'">
-    <form  th:action="@{/postin}" th:object="${formModel}" method="post" enctype="multipart/form-data">
+    <form  th:action="@{/changeBg}" th:object="${formModel}" method="post" enctype="multipart/form-data">
         <input type="file" id="image" name="image" accept="image/*" class="form-control-file"/>
         <button type="submit">Subir fundo</button>
     </form>
@@ -22,7 +22,6 @@
     <div class="direita">
         <a th:href="@{/draw}">Desenhar o perfil</a><br>
         <a th:href="@{/gotoMyPoste}">Ir para meu poste</a><br>
-        <a th:href="@{/changeBgPoste}">Alterar fundo pessoal</a>
     </div>
     <br>
     </div>  

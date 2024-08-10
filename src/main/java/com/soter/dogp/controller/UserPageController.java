@@ -5,13 +5,19 @@ import com.soter.dogp.objcts.Posts;
 import com.soter.dogp.service.PersonalizeService;
 import com.soter.dogp.service.PostService;
 import com.soter.dogp.service.SmellService;
+import com.soter.dogp.service.UserService;
 import jakarta.servlet.http.HttpSession;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,6 +32,9 @@ public class UserPageController {
 
     @Autowired
     private SmellService smellService;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private PersonalizeService personalizeService;
@@ -60,5 +69,23 @@ public class UserPageController {
         smellService.changeApelido(cheiroId, apelido);
         return "redirect:/perfil";
 
+    }
+
+    @PostMapping("/changeBg")
+    public String poster(HttpSession session,
+                         @ModelAttribute("inputAModel")
+                         Object formModel,
+                         Model model, @RequestParam("image") MultipartFile file)
+            throws IOException, ParseException {
+        Integer userid = (Integer) session.getAttribute("USERID");
+        model.addAttribute("formModel", new Object());
+        StringBuilder fileNames = new StringBuilder();
+        Integer originPoste = userService.getOriginPosteByUserId(userid);
+        personalizeService.setupBackground(originPoste, originPoste, file.getOriginalFilename());
+        Path fileNameAndPath = Paths.get("C://Users/Pichau/Pictures/picdogs/background", file.getOriginalFilename());
+        if(file.getSize()>0) {
+            Files.write(fileNameAndPath, file.getBytes());
+        }
+        return "redirect:/perfil";
     }
 }
