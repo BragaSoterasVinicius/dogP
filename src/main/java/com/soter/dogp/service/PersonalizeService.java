@@ -13,15 +13,24 @@ public class PersonalizeService {
     @Autowired
     PostRepo postRepo;
 
+    @Autowired
+    UserService userService;
+
     public void setupBackground(Integer backgroundId, Integer poste) {
         postRepo.insertBg(poste, backgroundId);
     }
 
+    public String getBackgroundByUserId(Integer user_id) {
+        Integer userPoste = userService.getOriginPosteByUserId(user_id);
+        String bGImage = getBackgroundId(userPoste);
+        return bGImage;
+    }
+
     public String getBackgroundId(Integer poste) {
-        Integer bg = postRepo.getBackgroundId(poste);
+        String bg = postRepo.getBackgroundId(poste);
         if (bg == null) {
             return "0.png";
         }
-        return bg.toString()+".png";
+        return bg;
     }
 }

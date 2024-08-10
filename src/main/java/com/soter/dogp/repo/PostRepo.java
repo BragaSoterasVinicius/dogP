@@ -26,6 +26,6 @@ public interface PostRepo extends JpaRepository<Posts, Integer> {
     List<Posts> getPostsByUserId(Integer user_id);
 
     @Query(value = "SELECT background_id FROM postebackground WHERE poste_id = :id", nativeQuery = true)
-    Integer getBackgroundId(Integer id);
+    String getBackgroundId(Integer id);
 
 }

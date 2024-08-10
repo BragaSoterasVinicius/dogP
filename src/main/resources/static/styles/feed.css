@@ -26,6 +26,7 @@
     height: inherit;
 }
 .under{
+    margin-top: 10px;
     background-color: bisque;
     bottom: 0px;
     width: 100%;

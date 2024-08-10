@@ -7,8 +7,12 @@
     <link th:href="@{/styles/general.css}" rel="stylesheet" />
 
 </head>
-<body>
-<div id="centerCol">
+<body th:style="'background:url('  + @{/images/background/__${backgroundImage}__} + ');'">
+    <form  th:action="@{/postin}" th:object="${formModel}" method="post" enctype="multipart/form-data">
+        <input type="file" id="image" name="image" accept="image/*" class="form-control-file"/>
+        <button type="submit">Subir fundo</button>
+    </form>
+    <div id="centerCol">
     <div class="top">
     <a th:href="poste">Voltar</a>
     <br>
@@ -17,7 +21,8 @@
     </div>
     <div class="direita">
         <a th:href="@{/draw}">Desenhar o perfil</a><br>
-        <a th:href="@{/gotoMyPoste}">Ir para meu poste</a>
+        <a th:href="@{/gotoMyPoste}">Ir para meu poste</a><br>
+        <a th:href="@{/changeBgPoste}">Alterar fundo pessoal</a>
     </div>
     <br>
     </div>  
@@ -59,5 +64,6 @@
 </div>
 </div>
 </div>
+
 </body>
 </html>
