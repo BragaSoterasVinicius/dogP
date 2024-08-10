@@ -43,6 +43,7 @@ function draw() {
     canvas.addEventListener("mouseup", () => isDrawing = false);
 }
 function sendToJavaTron(){
+    //lembrar de alterar esses métodos para transformar a imagem em um cachorro quando tudo estiver mais hospedado
         // Convert canvas to data URL
         const canvas = document.getElementById('canvas');
         const context = canvas.getContext('2d');
