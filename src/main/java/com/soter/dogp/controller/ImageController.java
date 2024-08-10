@@ -17,11 +17,13 @@ import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 @Controller
 @RequestMapping("/images")
 public class ImageController {
 
     private final Path imagePath = Paths.get("C:/Users/Pichau/Pictures/picdogs/");
+    private final Path bgPath = Paths.get("C:/Users/Pichau/Pictures/picdogs/Background");
 
     @GetMapping("/{filename:.+}")
     public ResponseEntity<UrlResource> serveFile(@PathVariable String filename) {
@@ -31,9 +33,28 @@ public class ImageController {
             String contentType = Files.probeContentType(file);
 
             return ResponseEntity.ok()
-                        .contentType(MediaType.parseMediaType(contentType))
-                        .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
-                        .body(resource);
+                    .contentType(MediaType.parseMediaType(contentType))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
+                    .body(resource);
+
+        } catch (MalformedURLException e) {
+            throw new RuntimeException("Error: " + e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @GetMapping("/background/{filename:.+}")
+    public ResponseEntity<UrlResource> serveBackground(@PathVariable String filename) {
+        try {
+            Path file = bgPath.resolve(filename);
+            UrlResource resource = new UrlResource(file.toUri());
+            String contentType = Files.probeContentType(file);
+
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType(contentType))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
+                    .body(resource);
 
         } catch (MalformedURLException e) {
             throw new RuntimeException("Error: " + e.getMessage());

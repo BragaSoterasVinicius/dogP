@@ -11,6 +11,11 @@ body{
   height: 100vh;
   background-color: purple;
 }
+#bignumber{
+  color: black;
+  text-align: center;
+  margin: 10px;
+}
 a{
   color: bisque;
 }

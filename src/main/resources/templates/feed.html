@@ -7,7 +7,7 @@
     <link th:href="@{/styles/general.css}" rel="stylesheet" />
     <link rel="stylesheet" href="../static/styles/feed.css">
 </head>
-<body>
+<body th:style="'background:url('  + @{/images/background/__${backgroundImage}__} + ');'">
 
 <div class="top">
 <div class="userdata">
@@ -15,6 +15,7 @@
     <a th:href="logout">log out</a>
 </div>
 <div class="middle">
+<h1 id="bignumber" th:text ="${posteId}"></h1>
 <div th:each="post : ${listsPosts}" th:classappend="${post.isHunted} ? 'active' : 'inactive'">
     <tag th:text="${post.getDatetime()}"></tag>
     <tag> - </tag>

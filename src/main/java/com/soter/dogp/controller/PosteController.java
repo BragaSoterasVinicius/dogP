@@ -5,6 +5,7 @@ import com.soter.dogp.objcts.Posts;
 import com.soter.dogp.objcts.User;
 import com.soter.dogp.service.CadastroService;
 import com.soter.dogp.service.DogService;
+import com.soter.dogp.service.PersonalizeService;
 import com.soter.dogp.service.PostService;
 import com.soter.dogp.service.UserService;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -37,6 +38,8 @@ public class PosteController {
     private DogService dogService;
     @Autowired
     private ImageController imageController;
+    @Autowired
+    private PersonalizeService personalizeService;
 
     @GetMapping("/poste")
     public String posteLoader(HttpSession session, Model model) {
@@ -52,11 +55,13 @@ public class PosteController {
         List<Posts> posts = postService.getPostsByPoste(posteId);
         List<PersonalPost> personalPosts = postService.buildPersonalPosts(posts, session);
         List<String> dogGallery = dogService.getImagesByPosteId(posteId);
+        String posteBg = personalizeService.getBackgroundId(posteId);
         model.addAttribute("userid", userid);
         model.addAttribute("posteId", posteId);
         model.addAttribute("username", name);
         model.addAttribute("listsPosts", personalPosts);
         model.addAttribute("dogGallery", dogGallery);
+        model.addAttribute("backgroundImage", posteBg);
         return "feed";
     }
 
@@ -98,7 +103,9 @@ public class PosteController {
     @GetMapping("/jumpTo")
     public String jumpTo(HttpSession session, Model model, @ModelAttribute("Posts") Posts postePage) {
         Integer pageJump = postePage.getPosteId();
-        session.setAttribute("POSTEID", pageJump);
+        if (pageJump >= 0) {
+            session.setAttribute("POSTEID", pageJump);
+        }
         return "redirect:/poste";
     }
 

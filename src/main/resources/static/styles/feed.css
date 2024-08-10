@@ -14,6 +14,7 @@
     width: 30%;
 }
 .middle{
+    padding: 10px;
     background-color: white;
     color: black;
     overflow: auto;
