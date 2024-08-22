@@ -32,7 +32,7 @@ public class DogDrawController {
             String base64Image = canvasData.getImageData().split(",")[1];
             byte[] imageBytes = Base64.getDecoder().decode(base64Image);
             Integer userid = (Integer) session.getAttribute("USERID");
-            String path = "home/root/midia/galeria-do-dogp/" + userid.toString()+ ".png";
+            String path = "/home/root/midia/galeria-do-dogp/" + userid.toString()+ ".png";
             File file = new File(path);
             userService.setImage(userid, userid);
             try (OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file))){

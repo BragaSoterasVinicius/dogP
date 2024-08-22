@@ -82,7 +82,7 @@ public class UserPageController {
         StringBuilder fileNames = new StringBuilder();
         Integer originPoste = userService.getOriginPosteByUserId(userid);
         personalizeService.setupBackground(originPoste, originPoste, file.getOriginalFilename());
-        Path fileNameAndPath = Paths.get("home/root/midia/galeria-do-dogp/background", file.getOriginalFilename());
+        Path fileNameAndPath = Paths.get("/home/root/midia/galeria-do-dogp/background", file.getOriginalFilename());
         if(file.getSize()>0) {
             Files.write(fileNameAndPath, file.getBytes());
         }
