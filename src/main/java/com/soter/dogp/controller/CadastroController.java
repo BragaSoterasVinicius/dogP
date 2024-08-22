@@ -3,6 +3,7 @@ package com.soter.dogp.controller;
 import com.soter.dogp.objcts.User;
 import com.soter.dogp.repo.UserRepo;
 import com.soter.dogp.service.CadastroService;
+import com.soter.dogp.service.LoginService;
 import com.soter.dogp.service.SessionService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class CadastroController {
     CadastroService cadastroService;
 
     @Autowired
+    UserRepo userRepo;
+
+    @Autowired
     SessionService sessionService;
     @GetMapping("/cadastro")
     public String cadastroPage(Model model, @ModelAttribute("User") User userCadastro){
@@ -30,8 +34,14 @@ public class CadastroController {
         String nome = userCadastro.getNome();
         String email = userCadastro.getEmail();
         String senha = userCadastro.getSenha();
-        cadastroService.saveUser(nome, email, senha);
-        sessionService.setUserSession(session, userCadastro);
+        if(cadastroService.doesUserNotExists(email)){
+            cadastroService.saveUser(nome, email, senha);
+            User user = userRepo.getUserDataByEmail(email);
+            sessionService.setUserSession(session, user);
+        }
+        //if(session.getAttribute("POSTEID") !=null){
+        //    session.setAttribute("POSTEID", );
+        //}
         return "redirect:/poste";
     }
 }
