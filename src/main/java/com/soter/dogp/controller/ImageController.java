@@ -23,7 +23,7 @@ import java.nio.file.Paths;
 public class ImageController {
 
     private final Path imagePath = Paths.get("/root/midia/galeria-do-dogp/");
-    private final Path bgPath = Paths.get("/root/midia/galeria-do-dogp/Background");
+    private final Path bgPath = Paths.get("/root/midia/galeria-do-dogp/background");
 
     @GetMapping("/{filename:.+}")
     public ResponseEntity<UrlResource> serveFile(@PathVariable String filename) {
