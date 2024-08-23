@@ -8,7 +8,7 @@
     width: 300px    ;
 }
 .left{
-    float: left;
+    float: inline-start;
 }
 .username{
     font-size: 40px;
@@ -27,11 +27,11 @@
     height: 100px;
 }
 .mypost{
-    float: right;
+    margin-top: 100px;
     width: 300px;
 }
 .conjunto{
-    height: 80vh;
+    height: 100%;
     overflow: auto;
 }
 .inputBg{

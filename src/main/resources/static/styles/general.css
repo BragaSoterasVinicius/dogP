@@ -16,6 +16,11 @@ body{
   text-align: center;
   margin: 10px;
 }
+#semi_a{
+  color:bisque;
+  text-decoration: underline;
+  text-decoration-color: bisque;
+}
 a{
   color: bisque;
 }

@@ -2,10 +2,7 @@ package com.soter.dogp.controller;
 
 import com.soter.dogp.objcts.Cheiro;
 import com.soter.dogp.objcts.Posts;
-import com.soter.dogp.service.PersonalizeService;
-import com.soter.dogp.service.PostService;
-import com.soter.dogp.service.SmellService;
-import com.soter.dogp.service.UserService;
+import com.soter.dogp.service.*;
 import jakarta.servlet.http.HttpSession;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +34,9 @@ public class UserPageController {
     private UserService userService;
 
     @Autowired
+    private DogService dogService;
+
+    @Autowired
     private PersonalizeService personalizeService;
 
     @GetMapping("/perfil")
@@ -46,11 +46,13 @@ public class UserPageController {
         List<Posts> listMyPosts = postService.getPostsByUserId(user_id);
         List<Cheiro> listCheiros = smellService.getCheiradosByUser(session);
         String posteBg = personalizeService.getBackgroundByUserId(user_id);
+        String userDog = dogService.getUserDog(user_id);
         model.addAttribute("username", name);
         model.addAttribute("listsPosts", listMyPosts);
         model.addAttribute("listCheiros", listCheiros);
         model.addAttribute("backgroundImage", posteBg);
-        return "userPage";
+        model.addAttribute("dog", userDog);
+        return "usermenu";
     }
 
     @GetMapping("/addSmellToSearchList")

@@ -8,20 +8,29 @@
 
 </head>
 <body th:style="'background:url('  + @{/images/background/__${backgroundImage}__} + ');'">
-    <form  th:action="@{/changeBg}" th:object="${formModel}" method="post" enctype="multipart/form-data">
-        <input type="file" id="image" name="image" accept="image/*" class="form-control-file"/>
-        <button type="submit">Subir fundo</button>
-    </form>
     <div id="centerCol">
     <div class="top">
     <a th:href="poste">Voltar</a>
     <br>
+    <div>
+        <img id="img" th:src="@{/images/__${dog}__}"/>
+    </div>
     <div class="left">
         <h1 class="username" th:text="${username}"></h1>
     </div>
     <div class="direita">
         <a th:href="@{/draw}">Desenhar o perfil</a><br>
         <a th:href="@{/gotoMyPoste}">Ir para meu poste</a><br>
+        <details>
+            <summary id="semi_a">Alterar fundo pessoal</summary>
+            <div>
+                <form  th:action="@{/changeBg}" th:object="${formModel}" method="post" enctype="multipart/form-data">
+                    <input type="file" id="image" name="image" accept="image/*" class="form-control-file"/>
+                    <button type="submit">Subir fundo</button>
+                </form>
+            </div>
+        </details>
+
     </div>
     <br>
     </div>  
@@ -58,7 +67,6 @@
         </form>
         <p th:text="${cheiro.getIs_hunted()}"></p>
         <!--no futuro vai ser bom criar algum jeito de mostrar o apelido baseado no id do usuario alheio  -->
-
     </div>
 </div>
 </div>
