@@ -22,8 +22,8 @@ import java.nio.file.Paths;
 @RequestMapping("/images")
 public class ImageController {
 
-    private final Path imagePath = Paths.get("C:/Users/Pichau/Pictures/picdogs/");
-    private final Path bgPath = Paths.get("C:/Users/Pichau/Pictures/picdogs/Background");
+    private final Path imagePath = Paths.get("/root/midia/galeria-do-dogp/");
+    private final Path bgPath = Paths.get("/root/midia/galeria-do-dogp/background");
 
     @GetMapping("/{filename:.+}")
     public ResponseEntity<UrlResource> serveFile(@PathVariable String filename) {
