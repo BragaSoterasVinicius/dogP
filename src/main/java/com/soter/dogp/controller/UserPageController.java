@@ -52,7 +52,7 @@ public class UserPageController {
         model.addAttribute("listCheiros", listCheiros);
         model.addAttribute("backgroundImage", posteBg);
         model.addAttribute("dog", userDog);
-        return "userPage";
+        return "usermenu";
     }
 
     @GetMapping("/addSmellToSearchList")

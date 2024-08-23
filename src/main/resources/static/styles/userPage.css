@@ -31,7 +31,7 @@
     width: 300px;
 }
 .conjunto{
-    height: 80vh;
+    height: 100%;
     overflow: auto;
 }
 .inputBg{
