@@ -32,5 +32,9 @@ public class DogService {
         }
         return imagesIdOnBoard;
     }
+    public String getUserDog(Integer userid){
+        String dogImageName = userRepo.getUserDogImage(userid)+".png";
+        return dogImageName;
+    }
 
 }
