@@ -6,6 +6,19 @@
     <link th:href="@{/styles/feed.css}" rel="stylesheet" />
     <link th:href="@{/styles/general.css}" rel="stylesheet" />
     <link rel="stylesheet" href="../static/styles/feed.css">
+    <script>
+        // Function to simulate button click on keypress
+        document.addEventListener("keydown", function(event) {
+            // Check if the 'Enter' key is pressed
+            if (event.key == "ArrowRight") {
+                document.getElementById("nextPoste").click();
+            }
+            if (event.key == "ArrowLeft") {
+                document.getElementById("lastPoste").click();
+            }
+
+        });
+    </script>
 </head>
 <body th:style="'background:url('  + @{/images/background/__${backgroundImage}__} + ');'">
 
@@ -41,13 +54,13 @@
     </form>
     <div class="menu">
         <form th:action="@{/lastPoste}" method="get">
-            <button class="buttonLN" type="submit"> < voltar </button>
+            <button id="lastPoste" class="buttonLN" type="submit"> < voltar </button>
         </form>
         <form th:action="@{/jumpTo}" method="get" th:object="${postePage}">
             <input class="inputPoste"  type="number" id="posteId" name="posteId" placeholder="poste" />
         </form>
         <form th:action="@{/nextPoste}" method="get">
-            <button class="buttonLN" type="submit"> seguir > </button>
+            <button id="nextPoste" class="buttonLN" type="submit"> seguir > </button>
         </form>
     </div>
 </div>

@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quadro</title>
+    <link th:href="@{/styles/general.css}" rel="stylesheet" />
     <script th:src="@{/js/dogDraw.js}"></script>
 </head>
-<body onload="draw()">
+<body onload="draw()" style="background-color: #7f7f7f">
+    <div style="margin: auto;
+  width: 50%; background-color: darkgray; height: 100vh" >
     <a th:href="@{/perfil}">Voltar</a>
     <h1>Desenhe teu cão</h1>
-    <canvas height="300px" width="600px" id="canvas">
+    <canvas height="300px" width="600px" id="canvas" style="margin: 5%">
     </canvas>
+        <div>
     <button onclick="sendToJavaTron()">enviar imagem</button>
     <button onclick="apagar()">Apagar imagem</button>
+        </div>
+    </div>
 </body>
 </html>
