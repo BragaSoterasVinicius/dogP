@@ -4,6 +4,7 @@ import com.soter.dogp.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,9 @@ import java.util.Base64;
 public class DogDrawController {
 
     @Autowired
+    UserPageController userPageController;
+
+    @Autowired
     UserService userService;
     @GetMapping("/draw")
     public String drawLoader(){
@@ -25,7 +29,7 @@ public class DogDrawController {
     }
 
     @PostMapping("/uploadCanvas")
-    public String uploadCanvas(@RequestBody CanvasData canvasData, HttpSession session) {
+    public void uploadCanvas(@RequestBody CanvasData canvasData, HttpSession session, Model model) {
         //manda essa desgraça pro service.
         try {
             // Suco do chatgpteison esse metodo aqui
@@ -37,13 +41,11 @@ public class DogDrawController {
             userService.setImage(userid, userid);
             try (OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file))){
                 outputStream.write(imageBytes);
-
             }
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Erro subindo o diabo do canva");
         }
-        return "redirect:/poste";
     }
     static class CanvasData {
         private String imageData;
