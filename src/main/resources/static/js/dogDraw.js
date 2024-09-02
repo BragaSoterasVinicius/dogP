@@ -20,12 +20,15 @@ function draw() {
 
     image1 = new Image();
     //dps coloca o cachorro
-    //image1.src = 'dogp.png';
+    image1.src = 'imagens/dogptrans.png';
+
     const setCanvasBackground = () => {
-        ctx.fillStyle = '#fff';
-        ctx.fillRect(0,0, canvas.width, canvas.height);
-        ctx.fillStyle = "#fff";
-    }
+        image2 = new Image();
+        image2.src = 'imagens/dogpfundo.png';
+        image2.onload = () => {
+            ctx.drawImage(image2, 0, 0, canvas.width, canvas.height);
+        };
+         }
     const startDrawing = () => {
         isDrawing = true;
         ctx.beginPath();
@@ -41,6 +44,7 @@ function draw() {
     canvas.addEventListener("mousedown", startDrawing);
     canvas.addEventListener("mousemove", drawing);
     canvas.addEventListener("mouseup", () => isDrawing = false);
+
 }
 function sendToJavaTron(){
     //lembrar de alterar esses métodos para transformar a imagem em um cachorro quando tudo estiver mais hospedado
