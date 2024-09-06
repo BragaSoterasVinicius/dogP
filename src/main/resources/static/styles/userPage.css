@@ -21,6 +21,7 @@
     margin-left: 30px;
 }
 .direita{
+    height: 100%;
     float: inline-end;
 }
 .top{
