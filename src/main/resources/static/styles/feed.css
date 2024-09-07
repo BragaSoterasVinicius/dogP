@@ -8,10 +8,20 @@
     height: 200px;
     width: 320px;
 }
+.time{
+    margin-left: 20px;
+    color: white;
+    position: absolute;
+    bottom: 0px;
+}
 .userdata{
+    position: relative;
     float: right;
     height: inherit;
     width: 33%;
+}
+.userdata a{
+
 }
 .middle{
     width: 33%;

@@ -6,18 +6,8 @@
     <link th:href="@{/styles/feed.css}" rel="stylesheet" />
     <link th:href="@{/styles/general.css}" rel="stylesheet" />
     <link rel="stylesheet" href="../static/styles/feed.css">
-    <script>
-        // Function to simulate button click on keypress
-        document.addEventListener("keydown", function(event) {
-            // Check if the 'Enter' key is pressed
-            if (event.key == "ArrowRight") {
-                document.getElementById("nextPoste").click();
-            }
-            if (event.key == "ArrowLeft") {
-                document.getElementById("lastPoste").click();
-            }
+    <script th:src="@{/js/feed.js}">
 
-        });
     </script>
 </head>
 <body th:style="'background:url('  + @{/images/background/__${backgroundImage}__} + ');'">
@@ -26,6 +16,10 @@
 <div class="userdata">
     <a th:href="@{perfil}"><div th:text="${username}"></div></a>
     <a th:href="logout">log out</a>
+    <div class="time">
+        <span id="daytime"></span><br>
+        <span id="yeartime"></span>
+    </div>
 </div>
 <div class="middle">
 <h1 id="bignumber" th:text ="${posteId}"></h1>
