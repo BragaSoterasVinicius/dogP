@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'PixeloidSans';
+  src: url(fonts/PixeloidSans-mLxMm.ttf);
+}
+@font-face {
+  font-family: 'PixeloidBold';
+  src: url(fonts/PixeloidSansBold-PKnYd.ttf);
+}
+#title{
+  font-family: PixeloidSans;
+}
 #deadcenter{
   position: absolute;
   width: 100%;
