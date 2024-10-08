@@ -23,12 +23,12 @@
 </div>
 <div class="middle">
 <h1 id="bignumber" th:text ="${posteId}"></h1>
-<div th:each="post : ${listsPosts}" th:classappend="${post.isHunted} ? 'active' : 'inactive'">
-    <tag th:text="${post.getDatetime()}"></tag>
-    <tag> - </tag>
-    <tag th:text="${post.getApelido()}"></tag>
-    <tag> - </tag>
-    <tag th:text="${post.getPost()}"></tag>
+<div th:each="post : ${listsPosts}" th:classappend="${post.isHunted} ? 'active' : 'inactive'" class="post">
+    <div style="border-style: solid; border-width: 1px; width: 45%; margin: 4px; min-height: 19px; background-color: white"><tag th:text="${post.getApelido()}"></tag></div>
+    <div style="border-style: solid; border-width: 1px; margin: 4px; background-color: white">
+        <div th:text="${post.getPost()}" style="margin: 3px"></div>
+        <div style="border-top-style: solid; border-width: 1px; " th:text="${post.getDatetime()}"></div>
+    </div>
     <form th:action="@{/addSmell}" th:object="${newCheiro}" method="post" enctype="multipart/form-data">
         <input type="hidden" id="cheirado_id" name="cheirado_id" th:value="${post.getUserid()}"/>
         <input type="submit" value="Scheirar">
