@@ -35,8 +35,8 @@ public class PostService {
         return postePosts;
     }
 
-    public void makePost(Integer userId, String text, Integer poste) {
-        postRepo.createPost(userId, text, poste);
+    public void makePost(Integer userId, String text, Integer poste, String imgname) {
+        postRepo.createPost(userId, text, poste, imgname);
     }
 
     public List<PersonalPost> buildPersonalPosts(List<Posts> listaOriginal, HttpSession session) {
