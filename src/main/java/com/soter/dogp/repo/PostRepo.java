@@ -35,4 +35,7 @@ public interface PostRepo extends JpaRepository<Posts, Integer> {
     @Modifying
     @Query(value = "UPDATE postebackground SET name = :filename WHERE background_id = :backgroundId", nativeQuery = true)
     void updateBg(String filename, Integer backgroundId);
+
+    @Query(value = "SELECT imgname FROM posts WHERE id = :id", nativeQuery = true)
+    String getImagemFromPost(Integer id);
 }
