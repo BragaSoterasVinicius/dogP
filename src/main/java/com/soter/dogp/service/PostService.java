@@ -56,6 +56,7 @@ public class PostService {
         postPessoal.setPost(posts.getPost());
         postPessoal.setPosteId(posts.getPosteId());
         postPessoal.setApelido(smellService.getApelido(posts.getUserid(), (Integer) session.getAttribute("USERID")));
+        postPessoal.setImgName(posts.getImgname());
         Integer user_id = (Integer) session.getAttribute("USERID");
         boolean hunted = smellService.isAuthorBeingHuntedByTheUser(user_id, posts.getUserid());
         postPessoal.setHunted(hunted);

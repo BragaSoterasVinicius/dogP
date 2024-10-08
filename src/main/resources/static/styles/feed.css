@@ -4,6 +4,9 @@
 .post.inactive{
     background-color: gray;
 }
+.postComImagem{
+    height: 100px;width: 55%;
+}
 .post{
     margin: 5px;
     border-style: solid;
