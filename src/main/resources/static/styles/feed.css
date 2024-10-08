@@ -18,8 +18,20 @@
     a{
         font-size: 40px;
     }
+    .userdata{
+        bottom: 0px;
+        position: absolute;
+        width: 100%;
+    }
+    .time{
+        right: 0px;
+    }
     .middle{
         width: 100%;
+    }
+    .direita{
+        position: absolute;
+        top: 100vh;
     }
 }
 .post.active{
