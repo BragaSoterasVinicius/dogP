@@ -1,4 +1,4 @@
-@media (min-width: 600px) {
+@media(min-width: 600px) {
     .userdata{
         position: relative;
         float: right;
@@ -14,7 +14,7 @@
         height: inherit;
     }
 }
-@Media(max-width: 600px){
+@media(max-width: 600px){
     a{
         font-size: 40px;
     }
