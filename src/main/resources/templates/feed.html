@@ -39,9 +39,7 @@
 </div>
 </div>
 <div class="direita">
-    <div th:each="dog : ${dogGallery}">
-        <img id="img" th:src="@{/images/__${dog}__}"/>
-    </div>
+        <img th:each="dog : ${dogGallery}" id="img" th:src="@{/images/__${dog}__}"/>
 </div>
 </div>
 <div class="under">
