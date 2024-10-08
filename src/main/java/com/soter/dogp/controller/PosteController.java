@@ -86,7 +86,7 @@ public class PosteController {
         String post = newPosts.getPost();
         Integer posteId = (Integer) session.getAttribute("POSTEID");
         String imgname = file.getOriginalFilename();
-        Path fileNameAndPath = Paths.get("home/root/midia/galeria-do-dogp/posts", file.getOriginalFilename());
+        Path fileNameAndPath = Paths.get("/root/midia/galeria-do-dogp/posts", file.getOriginalFilename());
         if(file.getSize()>0) {
             Files.write(fileNameAndPath, file.getBytes());
         }else{
