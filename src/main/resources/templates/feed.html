@@ -25,7 +25,7 @@
 <div class="middle">
 <h1 id="bignumber" th:text ="${posteId}"></h1>
 <div th:each="post : ${listsPosts}" th:classappend="${post.isHunted} ? 'active' : 'inactive'" class="post">
-    <div style="border-style: solid; border-width: 1px; width: 45%; margin: 4px; min-height: 19px; background-color: white"><tag th:text="${post.getApelido()}"></tag></div>
+    <div th:if="${post.getApelido()}" style="border-style: solid; border-width: 1px; width: 45%; margin: 4px; min-height: 19px; background-color: white"><tag th:text="${post.getApelido()}"></tag></div>
     <div style="border-style: solid; border-width: 1px; margin: 4px; background-color: white">
         <div style="display: flex">
             <div th:text="${post.getPost()}" style="margin: 3px;" th:classappend="${post.hasImage()} ? 'postComImagem' : 'postSemImagem'"></div>
