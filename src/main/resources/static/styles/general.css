@@ -27,7 +27,7 @@ body{
   text-align: center;
   margin: 10px;
 }
-#semi_a{
+.semi_a{
   color:bisque;
   text-decoration: underline;
   text-decoration-color: bisque;
