@@ -16,7 +16,7 @@ import java.nio.file.Paths;
 @Service
 public class ImageService {
     //depois tratar de criar uma interface com um método para cada tipo de caminho de imagem, todas chamando a msm implementação aqui.
-    private final Path imagePath = Paths.get("home/root/midia/galeria-do-dogp/");
+    private final Path imagePath = Paths.get("/root/midia/galeria-do-dogp/");
     private final Path imagePostPath = Paths.get("posts");
     private final Path bgPath = Paths.get("background");
 
