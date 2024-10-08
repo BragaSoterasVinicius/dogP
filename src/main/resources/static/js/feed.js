@@ -4,13 +4,6 @@ function tick(){
     const calendarface = document.getElementById("yeartime")
 
     let d = new Date();
-    console.log(d.getDay());
-    console.log(d.getMonth());
-    console.log(d.getFullYear());
-    console.log(d.getHours());
-    console.log(d.getMinutes());
-    console.log(d.getSeconds());
-    console.log(d.getUTCHours())
     calendarface.innerHTML = ("0" + (d.getDay() + 1)).slice(-2)+'/'+("0" + (d.getMonth() + 1)).slice(-2)+'/'+d.getFullYear();
     clockface.innerHTML = ("0" + (d.getHours())).slice(-2)+':'+("0" + (d.getMinutes())).slice(-2)+':'+("0" + (d.getSeconds())).slice(-2);
 }
