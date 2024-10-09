@@ -13,10 +13,13 @@
         overflow: auto;
         height: inherit;
     }
+    .time{
+        font-size: 25px;
+    }
 }
 @media(max-width: 600px){
     a{
-        font-size: 40px;
+        font-size: 20px;
     }
     .userdata{
         bottom: 0px;
@@ -32,6 +35,9 @@
     .direita{
         position: absolute;
         top: 100vh;
+    }
+    .time{
+        font-size: 20px;
     }
 }
 .post.active{
@@ -53,6 +59,7 @@
     width: 320px;
 }
 .time{
+    font-family: PixeloidSans;
     margin-left: 20px;
     color: white;
     position: absolute;
