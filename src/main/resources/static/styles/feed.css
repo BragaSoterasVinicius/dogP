@@ -30,7 +30,6 @@
         right: 0px;
     }
     .middle{
-        font-family: monospace;
         width: 100%;
     }
     .direita{
@@ -70,6 +69,7 @@
 
 }
 .middle{
+    font-family: monospace;
     background-color: white;
     color: black;
     overflow: auto;
